@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+</head>
+<body>
+
+  <ul>
+    <li><a onclick="history.go(-1);">s</a></li>
+  </ul>
+
+  <div class="tarot-card front">
+
+    <div class="roman-numerals">Do Sagan</div>
+    <div  style="margin: 27% 0;">
+      <img class="astro" src="astro.gif">
+      <div class="clouds"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="roman-numerals">Para você</div>
+  </div>
+
+  <div class="tarot-card back">
+    <!--<div style="color: #632c65" class="roman-numerals">Seu compromisso é Vencer!</div>-->
+    <div  class="roman-numerals" style="text-align: justify; line-height: 1em   ;">
+      <i class="fas fa-star"></i><br>Nós somos poeira das estrelas.
+    </div>
+    <div class="insignia">
+      <!--<img class="astro" src="goku.gif">-->
+    </div>
+  </div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.18/paper-full.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+  <script  src="js/index.js"></script>
+  <canvas id="space" resize="true"></canvas>  
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css?family=Special+Elite");
+
+body {
+  overflow: hidden;
+  margin: 0;
+  background-color: #000;
+}
+
+
+canvas{
+  z-index: -1;
+}
+
+span {
+  display: inline-block;
+}
+
+ul {
+  position: fixed;
+  list-style-type: none;
+}
+ul a {
+  width: 70px;
+  height: 70px;
+  background: url(espada.png) no-repeat left bottom;
+  display: block;  
+  cursor: pointer; 
+}
+a:hover {
+  width: 70px;
+  height: 70px;
+  background-position: right bottom;
+}
+
+.tarot-card { /* ******************* */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  height: 500px;
+  transition: transform 1s ease-in-out;
+  width: 300px;
+  position: fixed;
+  top:0; bottom: 0;
+  left: 0; right: 0;
+  margin: auto;
+}
+.tarot-card.front { /* ******************* */
+  background: #632c65;
+  background: repeating-linear-gradient(-45deg, #632c65, #632c65 10px, #602a61 10px, #602a61 20px);
+  border: 20px solid #fff;
+  transform-origin: center;
+}
+.tarot-card.front:hover {
+  transform: rotateY(180deg);
+}
+.tarot-card.front:hover ~ .back {
+  transform: rotateY(0deg);
+}
+.tarot-card.back { /* ************************* */
+  background: #602a61;
+  background: repeating-linear-gradient(-45deg, #632c65, #632c65 10px, #602a61 10px, #602a61 20px);
+  border: 20px solid #fff;
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+.roman-numerals { /* *********************** */
+  color: #fff;
+  font-family: 'Special Elite', serif;
+  font-size: 3.6em;
+  padding: 20px 20px;
+  text-align: center;
+  text-shadow: 0 0 1px #fff;
+}
+
+.front .roman-numerals {
+  font-size: 2em;
+  margin: 0 0 0 0;
+  padding: 20px 0;
+}
+.astro{
+  z-index: 2;
+  float: right;
+  width: 80%; 
+  position: relative;
+
+}
+
+.clouds { /* ************** */
+  height: 200px;
+  overflow: visible;
+  position: relative;
+  width: 300px;
+  z-index: 0;
+}
+.clouds span { 
+  background: #863b89;
+  border-radius: 100%;
+}
+.clouds span:nth-of-type(1) {/* ********************** */
+  bottom: 0;
+  height: 100px;
+  left: 3px;
+  position: absolute;
+  width: 100px;
+}
+.clouds span:nth-of-type(2) {/* ********************** */
+  bottom: 0;
+  height: 200px;
+  left: 20%;
+  position: absolute;
+  width: 200px;
+}
+.clouds span:nth-of-type(3) { /* ********************** */
+  bottom: 0;
+  height: 120px;
+  position: absolute;
+  right: 3px;
+  width: 120px;
+}
+
+
+.insignia { 
+  height: 200px;
+  left: 50%;
+  position: relative;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.insignia .wands {
+  background: #ffcc28;
+  height: 200px;
+  left: 50%;
+  position: absolute;
+  transform: rotate(45deg) translateX(-50%);
+  transform-origin: left;
+  width: 5px;
+}
+.insignia .swords {
+  background: #ffcc28;
+  height: 200px;
+  left: 50%;
+  position: absolute;
+  transform: rotate(-45deg) translateX(-50%);
+  transform-origin: left;
+  width: 5px;
+}
+.insignia .swords::after {
+  background: #ffcc28;
+  bottom: 25%;
+  content: '';
+  height: 5px;
+  left: 50%;
+  position: absolute;
+  transform: translatex(-50%);
+  width: 30px;
+}
+.insignia .pentacles {
+  border: 5px solid #ffcc28;
+  border-radius: 100%;
+  bottom: -20px;
+  height: 40px;
+  left: 50%;
+  position: absolute;
+  transform: translatex(-50%);
+  width: 40px;
+}
+.insignia .cups {
+  border: 5px solid #ffcc28;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-top: 0;
+  height: 40px;
+  left: 50%;
+  position: absolute;
+  top: -20px;
+  transform: translatex(-50%);
+  width: 40px;
+}
+
+
+@media only screen and (max-device-height: 1024px) and (max-device-width: 768px) and (orientation: portrait){
+  ul a {
+    width: 70px;
+    height: 70px;
+  }
+  a:hover {
+    width: 70px;
+    height: 70px;
+  }
+  .tarot-card {
+    border-radius: 10px;
+    height: 1150px;
+    width: 750px;
+  }
+  .tarot-card.front { 
+    border: 50px solid #fff;
+    background: repeating-linear-gradient(-45deg, #632c65, #632c65 25px, #602a61 25px, #602a61 50px);
+  }
+  .tarot-card.back {
+    border: 50px solid #fff;
+    background: repeating-linear-gradient(-45deg, #632c65, #632c65 25px, #602a61 25px, #602a61 50px);
+  }
+  .roman-numerals {
+    font-size: 9em;
+    padding: 100px 50px;
+    text-shadow: 0 0 1px #fff;
+  }
+  .front .roman-numerals {
+    font-size: 6em;
+    margin: 0 0 0 0;
+    padding: 20px 0;
+  }
+  .clouds {
+    height: 500px;
+    width: 750px;
+  }
+  .clouds span:nth-of-type(1) {
+    height: 250px;
+    left: 3px;
+    width: 250px;
+  }
+  .clouds span:nth-of-type(2) {
+    height: 500px;
+    width: 500px;
+  }
+  .clouds span:nth-of-type(3) { 
+    height: 300px;
+    right: 3px;
+    width: 300px;
+  }
+}
+/* pixel 2 xl e iphone x */
+@media only screen and (max-device-width: 823px) and (max-device-height: 411px) and (min-device-width: 812px) and (min-device-height: 375px) and (orientation: landscape){
+  .tarot-card { 
+    border-radius: 10px;
+    height: 400px;
+    width: 250px;
+  }
+  .tarot-card.front { 
+    border: 15px solid #fff;
+    background: repeating-linear-gradient(-45deg, #632c65, #632c65 10px, #602a61 10px, #602a61 20px);
+  }
+  .tarot-card.back {
+    border: 15px solid #fff;
+    background: repeating-linear-gradient(-45deg, #632c65, #632c65 10px, #602a61 10px, #602a61 20px);
+  }
+  .roman-numerals { 
+    font-size: 3em;
+    padding: 20px 15px 0px;
+    text-shadow: 0 0 1px #fff;
+  }
+  .front .roman-numerals {
+    font-size: 2em;
+    padding: 25px 0 0 0;
+  }
+  .clouds { 
+    height: 130px;
+    width: 250px;
+  }
+  .clouds span:nth-of-type(1) {
+    height: 80px;
+    left: 1px;
+    width: 80px;
+  }
+  .clouds span:nth-of-type(2) {
+    height: 150px;
+    width: 150px;
+  }
+  .clouds span:nth-of-type(3) { 
+    height: 110px;
+    right: 1px;
+    width: 110px;
+  }
+}
