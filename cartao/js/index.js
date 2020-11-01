@@ -1,38 +1,27 @@
-
-
-/* ****************************************** */
-
 tl = new TimelineMax({paused: true, delay: 2});
 
 tl
-.from('.ziggy', 1, { opacity: 0 })
-.from('.ziggy1', 3, {delay: 3, opacity: 0 })
-.staggerFrom('.middle h1, .middle h2', 1, { y: 10, opacity: 0, delay: 3 }, 0.5)
-.from('.player', 1.5, { xPercent: '100%', delay: 3});
+  .from('.ziggy', 1, { opacity: 0 })
+  .from('.ziggy1', 3, {delay: 3, opacity: 0 })
+  .staggerFrom('.middle h1, .middle h2', 1, { y: 10, opacity: 0, delay: 3 }, 0.5)
+  .from('.player', 1.5, { xPercent: '100%', delay: 3});
 
 $('.player').on('click', function(){
   alert('click!');
 });
 
-// Adjust the autoplay
-  // myAudio = document.getElementById('song')[0];
-  // myAudio.addEventListener('canplaythrough', function() {
-  //   // this.currentTime = 12;
-  //   this.play();
-  // });
+paper.install(window);
+var SQRT_3 = Math.pow(3, 0.5);
+var D, mousePos, position;
+var count = 150;
 
-  paper.install(window);
-  var SQRT_3 = Math.pow(3, 0.5);
-  var D, mousePos, position;
-  var count = 150;
+window.onload = function() {
+  paper.setup('space');
 
-  window.onload = function() {
-    paper.setup('space');
+  D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
 
-    D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
-
-    mousePos = paper.view.center.add([view.bounds.width / 3, 100]);
-    position = paper.view.center;
+  mousePos = paper.view.center.add([view.bounds.width / 3, 100]);
+  position = paper.view.center;
 
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
@@ -230,9 +219,9 @@ class subPath {
   get_lastCubicBezier() {
     let lastIndexOfC = this.d.lastIndexOf("C");
     let temp = this.d
-    .substring(lastIndexOfC + 1)
-    .split(/[\s,]/)
-    .filter(v => v);
+                   .substring(lastIndexOfC + 1)
+                   .split(/[\s,]/)
+                   .filter(v => v);
     let _temp = [];
     temp.map(item => {
       _temp.push(parseFloat(item));
@@ -274,8 +263,8 @@ function get_T(t, index) {
   lengthAtT = pathlength * t;
   if (index > 0) {
     T =
-    (lengthAtT - subpaths[index].previous.pathLength) /
-    (subpaths[index].pathLength - subpaths[index].previous.pathLength);
+      (lengthAtT - subpaths[index].previous.pathLength) /
+      (subpaths[index].pathLength - subpaths[index].previous.pathLength);
   } else {
     T = lengthAtT / subpaths[index].pathLength;
   }
@@ -308,10 +297,10 @@ function getBezierPoints(t, points) {
 
   // points for the dynamic bézier
   let firstBezier = [
-  points[0],
-  helperPoints[0],
-  helperPoints[3],
-  helperPoints[5]
+    points[0],
+    helperPoints[0],
+    helperPoints[3],
+    helperPoints[5]
   ];
   //console.log(firstBezier)
   return firstBezier;
@@ -325,18 +314,18 @@ function lerp(A, B, t) {
   let ry = [
     (B[0] - A[0]) * t + A[0], //x
     (B[1] - A[1]) * t + A[1] //y
-    ];
-    return ry;
+  ];
+  return ry;
+}
+
+function drawCBezier(points, path, index) {
+  let d;
+
+  if (index > 0) {
+    d = subpaths[index].previous.d;
+  } else {
+    d = `M${points[0][0]},${points[0][1]} C`;
   }
-
-  function drawCBezier(points, path, index) {
-    let d;
-
-    if (index > 0) {
-      d = subpaths[index].previous.d;
-    } else {
-      d = `M${points[0][0]},${points[0][1]} C`;
-    }
 
   // points.length == 4
   for (let i = 1; i < 4; i++) {
@@ -347,16 +336,16 @@ function lerp(A, B, t) {
 }
 
 /*
-_t.addEventListener("input", ()=>{
+  _t.addEventListener("input", ()=>{
   t = _t.value;
   lengthAtT = pathlength*t;
   for(index = 0; index < subpaths.length; index++){
-if(subpaths[index].pathLength >= lengthAtT){break; }  
-}
+  if(subpaths[index].pathLength >= lengthAtT){break; }  
+  }
   T = get_T(t, index); 
   newPoints = getBezierPoints(T,subpaths[index].lastCubicBezier);
   drawCBezier(newPoints, partialPath, index);
-})*/
+  })*/
 
 t = 0.025;
 function Typing() {
