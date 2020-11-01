@@ -1,38 +1,27 @@
-
-
-/* ****************************************** */
-
 tl = new TimelineMax({paused: true, delay: 2});
 
 tl
-.from('.ziggy', 1, { opacity: 0 })
-.from('.ziggy1', 3, {delay: 3, opacity: 0 })
-.staggerFrom('.middle h1, .middle h2', 1, { y: 10, opacity: 0, delay: 3 }, 0.5)
-.from('.player', 1.5, { xPercent: '100%', delay: 3});
+  .from('.ziggy', 1, { opacity: 0 })
+  .from('.ziggy1', 3, {delay: 3, opacity: 0 })
+  .staggerFrom('.middle h1, .middle h2', 1, { y: 10, opacity: 0, delay: 3 }, 0.5)
+  .from('.player', 1.5, { xPercent: '100%', delay: 3});
 
 $('.player').on('click', function(){
   alert('click!');
 });
 
-// Adjust the autoplay
-  // myAudio = document.getElementById('song')[0];
-  // myAudio.addEventListener('canplaythrough', function() {
-  //   // this.currentTime = 12;
-  //   this.play();
-  // });
+paper.install(window);
+var SQRT_3 = Math.pow(3, 0.5);
+var D, mousePos, position;
+var count = 150;
 
-  paper.install(window);
-  var SQRT_3 = Math.pow(3, 0.5);
-  var D, mousePos, position;
-  var count = 150;
+window.onload = function() {
+  paper.setup('space');
 
-  window.onload = function() {
-    paper.setup('space');
+  D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
 
-    D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
-
-    mousePos = paper.view.center.add([view.bounds.width / 3, 100]);
-    position = paper.view.center;
+  mousePos = paper.view.center.add([view.bounds.width / 3, 100]);
+  position = paper.view.center;
 
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
